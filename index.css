@@ -1,0 +1,86 @@
+body {
+    margin: 0 auto;
+    width: 600px;
+    font-family: 'Smythe', cursive;
+    font-size: 16px;
+    font-weight: 400;
+    background: black;
+} 
+
+main {
+    background: white;
+}
+
+h1, h2, h3 {
+    margin: 0px;
+    padding: 0px;
+}
+
+h1 {
+    font-size: 39px;
+}
+
+h2{
+    font-size: 28px;
+}
+
+h3{
+    font-size: 22px;
+}
+
+p{
+    margin: 8px 0;
+}
+
+.header{
+    background-image: url('images/bg_img.png');
+    background-size: cover;
+    background-repeat: no-repeat;
+    height: 121px;
+    color: white;
+    padding: 46px 0 0 46px;
+}
+
+.menu-item-container {
+    margin: 0 auto;
+    padding: 51px 0 51px 0;
+    width: 85%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid #D2D2D2;
+}
+
+.item {
+    margin-left: 31px;
+    flex-grow: 1;
+}
+
+.ingredients{
+    color: #8B8B8B;
+    padding: 0;
+    margin: 0;
+}
+
+.btn{
+    padding: 8px 18px;
+    font-size: 32px;
+    border-radius: 50%;
+    border: 1.5px solid #DEDEDE;
+    background-color: white;
+    margin: 10px;
+}
+
+.remove {
+    padding: 8px 21px 8px 21px;
+}
+
+.order-container {
+    width: 85%;
+    margin: 0 auto;
+}
+
+/* Utility Classes */
+.hidden{
+    display: none;
+}
