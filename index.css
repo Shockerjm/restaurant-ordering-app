@@ -4,11 +4,20 @@ body {
     font-family: 'Smythe', cursive;
     font-size: 16px;
     font-weight: 400;
-    background: black;
+    background: #708090;
 } 
 
-main {
+main, header {
     background: white;
+    box-shadow: 0px 0px 25px black;
+}
+
+header{
+    margin-top: 51px;
+}
+
+main{
+    margin-bottom: 51px;
 }
 
 h1, h2, h3 {
@@ -69,6 +78,7 @@ p{
     border: 1.5px solid #DEDEDE;
     background-color: white;
     margin: 10px;
+    cursor: pointer;
 }
 
 .remove {
@@ -77,7 +87,64 @@ p{
 
 .order-container {
     width: 85%;
-    margin: 0 auto;
+    margin: 51px auto;
+    padding: 0 0 51px 0;
+}
+
+.order-title{
+    text-align: center;
+}
+
+.order-list{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.order-item {
+    font-size: 28px;
+}
+
+.remove-txt{
+    font-size: 14px;
+    color: #BBBBBB;
+    padding-left: 15px;
+    cursor: pointer;
+    font-weight: normal;
+}
+
+.order-price{
+    font-size: 20px;
+}
+
+.total-price{
+    border-top: 2px solid #393333;
+    margin-top: 18px;
+    padding: 18px 0 32px 0;
+}
+
+.complete-order-btn {
+    background: #16DB99;
+    border: none;
+    color: white;
+    padding: 18px 198px;
+    border-radius: 3px;
+    cursor: pointer;
+}
+
+.payment-modal{
+    display: none;
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0; 
+    right: 0;
+    margin: auto;
+    width: 524px;
+    height: 542px;
+    background: white;
+    border-radius: 4px;
+    box-shadow: 0px 0px 100px black;
 }
 
 /* Utility Classes */

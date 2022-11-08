@@ -6,6 +6,8 @@ document.addEventListener('click', function(e) {
         handleAddItemClick(e.target.dataset.add)
     } else if (e.target.dataset.remove) {
         handleRemoveItemClick(e.target.dataset.remove)
+    } else if(e.target.id === 'complete-order') {
+        document.getElementById('payment-modal').style.display = 'inline'
     }
 })
 
@@ -13,7 +15,7 @@ function handleAddItemClick(itemId) {
     menuArray[itemId].itemInCart = true
     order.push(menuArray[itemId])
     
-    totalPrice()
+    render()
 }
 
 function handleRemoveItemClick(itemId) {
@@ -41,7 +43,7 @@ function totalPrice() {
         return current
     }, 0)
     
-    render()
+    return total
 }
 
 function getContent() {
@@ -51,7 +53,7 @@ function getContent() {
         contentHtml += `
             <div class="menu-item-container">
                 <div>
-                    <img src="${item.image}" />               
+                    <img src="${item.image}" alt="${item.alt}"/>               
                 </div>
                 <div class="item">
                     <h2>${item.name}</h2>
@@ -68,8 +70,37 @@ function getContent() {
     return contentHtml
 }
 
+function getOrder() {
+    let orderHtml = `
+        <div class="order-container">
+            <span class="order-title"><h3>Your Order</h3></span>
+    `
+    
+    order.forEach((item) => {
+        orderHtml += `
+                <div class="order-list">
+                    <p class="order-item">${item.name} <span class="remove-txt" data-remove=${item.id}>remove</span></p>
+                    <p class="order-item"><span class="order-price">$${item.price}</span></p>
+                </div>
+        `
+    })
+    orderHtml +=`
+            <div class="order-list total-price">
+                <h3>Total Price:</h3>
+                <span class="order-price">$${totalPrice()}</span>
+            </div>
+            <button id="complete-order" class="complete-order-btn">Complete Order</button>
+        </div>
+    `
+    return orderHtml
+}
+
 function render() {
-    document.getElementById('root').innerHTML = getContent() 
+    const root = document.getElementById('root')
+    root.innerHTML = getContent() 
+    if (order.length !== 0) {
+        root.innerHTML += getOrder()
+    }
 }
 
 render()
