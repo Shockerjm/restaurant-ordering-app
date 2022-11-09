@@ -8,6 +8,9 @@ document.addEventListener('click', function(e) {
         handleRemoveItemClick(e.target.dataset.remove)
     } else if(e.target.id === 'complete-order') {
         document.getElementById('payment-modal').style.display = 'inline'
+    } else if(e.target.id === 'pay-btn') {
+        const payForm = document.getElementById('payment-form')
+        handlePaymentClick(payForm)
     }
 })
 
@@ -24,6 +27,17 @@ function handleRemoveItemClick(itemId) {
     
     checkRemoveVisible(itemId)
     render()
+} 
+
+function handlePaymentClick(payForm) {
+    const payFormData = new FormData(payForm)
+    const name = payFormData.get('name')
+    
+    if (name != '') {
+        console.log(name)
+    }
+    
+    
 }
 
 function checkRemoveVisible(itemId) {    
@@ -73,7 +87,7 @@ function getContent() {
 function getOrder() {
     let orderHtml = `
         <div class="order-container">
-            <span class="order-title"><h3>Your Order</h3></span>
+            <span class="center"><h3>Your Order</h3></span>
     `
     
     order.forEach((item) => {
@@ -89,7 +103,7 @@ function getOrder() {
                 <h3>Total Price:</h3>
                 <span class="order-price">$${totalPrice()}</span>
             </div>
-            <button id="complete-order" class="complete-order-btn">Complete Order</button>
+            <button id="complete-order" class="complete-order-btn font-two bold">Complete Order</button>
         </div>
     `
     return orderHtml

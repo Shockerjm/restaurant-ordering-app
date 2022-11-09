@@ -12,7 +12,20 @@
         </header>
         <main>
             <div id="root"></div>
-            <div id="payment-modal" class="payment-modal"></div>
+            <div id="payment-modal" class="payment-modal">
+                <div class="close-payment-modal-button-container">
+                    <button class="payment-modal-close-btn" id="payment-modal-close-btn">X</button>
+                </div>
+                <div class="payment-modal-inner" id="payment-modal-inner">
+                    <p class="center font-two bold">Enter card details</p>
+                    <form id="payment-form">
+                        <input type="text" name="name" placeholder="Enter you name" required/>
+                        <input type="text" name="cardNumber" placeholder="Enter card number" required/>
+                        <input type="text" name="cardCvv" placeholder="Enter CVV" required/>
+                        <button class="complete-order-btn font-two bold" id="pay-btn" type="submit">Pay</button>
+                    </form>
+                </div>
+            </div>
         </main>
 	<script src="index.js" type="module"></script>
     </body>
