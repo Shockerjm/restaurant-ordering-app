@@ -1,5 +1,6 @@
 import { menuArray } from './data.js'
 const order = []
+const root = document.getElementById('root')
 
 document.addEventListener('click', function(e) {
     if(e.target.dataset.add) {
@@ -11,6 +12,9 @@ document.addEventListener('click', function(e) {
     } else if(e.target.id === 'pay-btn') {
         const payForm = document.getElementById('payment-form')
         handlePaymentClick(payForm)
+        e.preventDefault()
+    } else if(e.target.id === 'payment-modal-close-btn') {
+        document.getElementById('payment-modal').style.display = 'none'
     }
 })
 
@@ -32,12 +36,12 @@ function handleRemoveItemClick(itemId) {
 function handlePaymentClick(payForm) {
     const payFormData = new FormData(payForm)
     const name = payFormData.get('name')
+    const cardNumber = payFormData.get ('cardNumber')
+    const cardCvv = payFormData.get('cardCvv')
     
-    if (name != '') {
-        console.log(name)
-    }
-    
-    
+    if (name != '' && cardNumber != '' && cardCvv != '') {
+        render(name)
+    }    
 }
 
 function checkRemoveVisible(itemId) {    
@@ -86,7 +90,7 @@ function getContent() {
 
 function getOrder() {
     let orderHtml = `
-        <div class="order-container">
+        <div class="order-container" id="order-container">
             <span class="center"><h3>Your Order</h3></span>
     `
     
@@ -109,11 +113,24 @@ function getOrder() {
     return orderHtml
 }
 
-function render() {
-    const root = document.getElementById('root')
+function thankYou(name) {
+    const thankYou = `
+        <div class="thank-you-container">
+            <p class="thank-you-message">Thanks, ${name}! Your order is on its way!</p>
+        </div>
+    `
+    return thankYou
+}
+
+function render(name) {
     root.innerHTML = getContent() 
     if (order.length !== 0) {
         root.innerHTML += getOrder()
+    }
+    if (name !== '' && name !== undefined) {
+        root.innerHTML += thankYou(name)
+        document.getElementById('order-container').style.display = 'none'
+        document.getElementById('payment-modal').style.display = 'none'
     }
 }
 

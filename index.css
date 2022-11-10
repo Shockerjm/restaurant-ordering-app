@@ -1,5 +1,5 @@
 body {
-    margin: 0 auto;
+    margin: 51px auto;
     width: 600px;
     font-family: 'Smythe', cursive;
     font-size: 16px;
@@ -10,14 +10,6 @@ body {
 main, header {
     background: white;
     box-shadow: 0px 0px 25px black;
-}
-
-header{
-    margin-top: 51px;
-}
-
-main{
-    margin-bottom: 51px;
 }
 
 h1, h2, h3 {
@@ -45,7 +37,6 @@ input{
     display: block;
     border: 1px solid #757575;
     padding: 16px 260px 15px 16px;
-    /* width: 100%; */
     margin: 18px auto;
     border-radius: 4px;
 }
@@ -154,6 +145,36 @@ input{
     border-radius: 4px;
     box-shadow: 0px 0px 100px black;
     padding: 25px;
+}
+
+.close-payment-modal-button-container {
+    text-align: right;
+}
+
+.payment-modal-close-btn {
+    background: #ECFDF5;
+    color: #065F46;
+    border: none;
+    padding: 10px 15px;
+    border-radius: 8px;
+    cursor: pointer;
+}
+
+.payment-title {
+    font-size: 24px;
+}
+
+.thank-you-container {
+    background: #ECFDF5;
+    color: #065F46;
+    width: 85%;
+    margin: 51px auto 200px auto;
+}
+
+.thank-you-message {
+    font-size: 32px;
+    text-align: center;
+    padding: 45px 0;
 }
 
 /* Utility Classes */
