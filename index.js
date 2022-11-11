@@ -118,6 +118,7 @@ function thankYou(name) {
         <div class="thank-you-container">
             <p class="thank-you-message">Thanks, ${name}! Your order is on its way!</p>
         </div>
+        <br />
     `
     return thankYou
 }
